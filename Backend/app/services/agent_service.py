@@ -20,6 +20,10 @@ agent = initialize_agent(
 
 
 def run_agent(query: str):
+    """
+    Run the conversational agent and return the response string.
+    """
+    
     try:
         resp = agent.run(query)
         return resp

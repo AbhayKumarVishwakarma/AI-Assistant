@@ -4,6 +4,11 @@ from app.config import OPENWEATHER_API_KEY
 
 @tool
 def get_weather(city: str) -> str:
+    """
+    Fetch current weather for a given city using OpenWeather API.
+    Returns a concise direct answer (no meta commentary).
+    """
+    
     if not OPENWEATHER_API_KEY:
         return "OpenWeather API key not configured."
     
