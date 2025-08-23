@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+langchain
+langchain-groq
+langchain-community
+requests
+pymongo
+pinecone-client
+langchain-pinecone
+sentence-transformers
+langchain-core
+pypdf
+passlib[bcrypt]
+motor
