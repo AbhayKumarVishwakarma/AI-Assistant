@@ -13,3 +13,4 @@ langchain-core
 pypdf
 passlib[bcrypt]
 motor
+langchain-huggingface
