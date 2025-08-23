@@ -20,8 +20,8 @@ PINECONE_ENV = os.getenv("PINECONE_ENV", "")
 
 # MongoDB 
 MONGODB_URI = os.getenv("MONGODB_URI", "")
-DB_NAME = os.getenv("DB_NAME", "users")
-SECRET_KEY = os.getenv("SECRET_KEY", "mysecret")  
+DB_NAME = os.getenv("DB_NAME", "")
+SECRET_KEY = os.getenv("SECRET_KEY", "LOISHDFT443OHNP443JHOI93LHOIH3HOSFD9369LH")  
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
