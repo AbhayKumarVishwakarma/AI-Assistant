@@ -17,9 +17,9 @@ def summarize(query: str, raw: str):
     )
 
     try:
-        out = llm(prompt)
-        if isinstance(out, dict) and "content" in out:
-            return out["content"].strip()
+        out = llm.invoke(prompt)
+        if hasattr(out, "content"):
+            return out.content.strip()
         return str(out).strip()
     except Exception as e:
         return f"Error summarizing: {str(e)}"
