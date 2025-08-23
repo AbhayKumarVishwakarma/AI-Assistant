@@ -9,7 +9,7 @@ from app.prompts.health_prompt import HEALTH_SYSTEM_PROMPT
 llm = get_llm()
 retriever = get_retriever()
 
-prompt = ChatPromptTemplate.format_messages(
+prompt = ChatPromptTemplate.from_messages(
     [
         ("system" , HEALTH_SYSTEM_PROMPT),
         ("human", "{input}")
