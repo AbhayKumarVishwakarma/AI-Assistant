@@ -21,7 +21,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     token = create_access_token(data={"sub": str(user["_id"])}, expires_delta=access_token_expires)
-    return {"access_token": token, "token_type": "bearer"}
+    return {"access_token": token, "token_type": "bearer", "username": user["username"]}
 
 @router.get("/me", response_model=User)
 async def read_users_me(current_user: User = Depends(get_current_user)):
