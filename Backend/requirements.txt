@@ -14,3 +14,4 @@ pypdf
 passlib[bcrypt]
 motor
 langchain-huggingface
+pymongo[srv]
