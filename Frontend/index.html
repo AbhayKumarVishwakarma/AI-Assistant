@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Agent-App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="side-top">
+        <div class="side-title">Multi-Agent-App</div>
+        <button id="btnAgent" class="side-btn active" type="button">
+          Agent
+        </button>
+        <button id="btnHealth" class="side-btn" type="button">
+          Health Assistant
+        </button>
+      </div>
+      <div class="side-bottom">
+        <button id="authBtn" class="auth-btn" type="button">Login</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="navbar">
+        <div class="nav-title"></div>
+        <div id="userBadge" class="nav-user">Not Logged In</div>
+      </header>
+
+      <section id="chat" class="chat"></section>
+
+      <footer class="input-bar">
+        <input id="msg" class="input" placeholder="Enter your message" />
+        <button id="send" class="send" type="button">Send</button>
+      </footer>
+    </main>
+
+    <!-- Login/Signup Modal -->
+    <div id="modalBackdrop" class="modal-backdrop">
+      <div class="modal">
+        <div class="topline">
+          <strong>Authentication</strong>
+          <button class="close-x" type="button" onclick="closeModal()">
+            ✕
+          </button>
+        </div>
+        <div class="tabs">
+          <button
+            id="tabLogin"
+            class="tab active"
+            type="button"
+            onclick="switchTab('login')"
+          >
+            Login
+          </button>
+          <button
+            id="tabSignup"
+            class="tab"
+            type="button"
+            onclick="switchTab('signup')"
+          >
+            Signup
+          </button>
+        </div>
+        <form
+          id="formLogin"
+          class="form"
+          onsubmit="event.preventDefault(); login();"
+        >
+          <label>Email</label>
+          <input id="loginUsername" type="email" autocomplete="email" />
+          <label>Password</label>
+          <input
+            id="loginPassword"
+            type="password"
+            autocomplete="current-password"
+          />
+          <button class="submit" type="submit">Login</button>
+        </form>
+        <form
+          id="formSignup"
+          class="form"
+          onsubmit="event.preventDefault(); signup();"
+          style="display: none"
+        >
+          <label>Username</label>
+          <input id="signupUsername" autocomplete="username" />
+          <label>Email</label>
+          <input id="signupEmail" type="email" autocomplete="email" />
+          <label>Password</label>
+          <input
+            id="signupPassword"
+            type="password"
+            autocomplete="new-password"
+          />
+          <button class="submit" type="submit">Create account</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
