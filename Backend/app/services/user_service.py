@@ -1,9 +1,10 @@
 from bson import ObjectId
 from pymongo import ReturnDocument
-from fastapi import APIRouter, Depends, HTTPException, Response
+from fastapi import HTTPException, Response
 from app.utils.serializers import serialize_user
 from app.db import users_collection
 from app.models.user import User, UserIn, UserUpdate
+from app.auth.security import hash_password
 
 async def get_user_by_email(email: str):
     return await users_collection.find_one({"email": email})
@@ -20,6 +21,7 @@ async def create_user(data: UserIn):
         raise HTTPException(status_code=400, detail="Email already registered")
     
     data_dict = data.model_dump()
+    data_dict["password"] = hash_password(data.password)
     data_dict["is_active"] = True
 
     result = await users_collection.insert_one(data_dict)
@@ -40,6 +42,9 @@ async def get_all_user():
 async def update_user(user_id: str, data: dict):
     oid = ObjectId(user_id)
     update_data = data.model_dump(exclude_unset=True)
+
+    if "password" in update_data:
+        update_data["password"] = hash_password(update_data["password"])
     
     user = await users_collection.find_one_and_update(
         {"_id": oid}, {"$set": update_data}, return_document=ReturnDocument.AFTER
