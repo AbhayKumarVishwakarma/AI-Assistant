@@ -39,48 +39,20 @@ It includes a secure JWT authentication system with user registration, login, an
     - A modern, minimal HTML/JS frontend with sidebar navigation, authentication modals, and dynamic chat windows.
 
 
-## Tech Stack
-
-| Component       | Technology Used                    |
-| --------------- | ---------------------------------- |
-| Backend         | FastAPI, LangChain, Python         |
-| Database        | MongoDB                            |
-| Vector Database | Pinecone                           |
-| LLM             | Groq (LLaMA-3-70B-8192)            |
-| Frontend        | HTML, CSS, Vanilla JS              |
-| Auth            | JWT with OAuth2PasswordBearer      |
-| Others          | Tavily Search API, OpenWeather API |
-
-
-## API Endpoints
-
-| Method | Endpoint       | Description                      |
-| ------ | -------------- | -------------------------------- |
-| `POST` | `/auth/signup` | Register a new user              |
-| `POST` | `/auth/login`  | Login & get JWT token            |
-| `GET`  | `/auth/me`     | Get current logged-in user info  |
-| `POST` | `/agent/chat`  | Chat with general AI agent       |
-| `POST` | `/health/ask`  | Chat with Health Assistant (RAG) |
-| `GET`  | `/user/all`    | Get all users                    |
-| `GET`  | `/user/{id}`   | Get user by ID                   |
-| `PUT`  | `/user/{id}`   | Update user by ID                |
-| `DELETE`| `/user/{id}`   | Delete user by ID                | 
-
-
 ## Setup & Installation
 
 Follow these steps to run the app locally:
 
 ### 1. Clone the repository
 ``` 
-git clone https://github.com/yourusername/multi-agent-app.git
-cd multi-agent-app
+git clone https://github.com/yourusername/AI-Assistant.git
+cd AI-Assistant/Backend
 ```
 
 ### 2. Create a virtual environment
 ```
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+conda create -p venv python=3.12
+conda activate venv/ 
 ```
 
 ### 3. Install dependencies
@@ -91,7 +63,7 @@ pip install -r requirements.txt
 ### 4. Set up environment variables
 ```
 cp .env.example .env
-(Fill in your API keys for MongoDB, Pinecone, Groq, Tavily, OpenWeather)
+# (Fill in your API keys for MongoDB, Pinecone, Groq, Tavily, OpenWeather)
 ```
 
 ### 5. Run the FastAPI server
@@ -132,6 +104,37 @@ Open frontend/index.html in your browser
 
 ### Health Assistant (RAG)
 ![Health_Agent](assets/image-3.png)
+
+
+
+## API Endpoints
+
+| Method | Endpoint       | Description                      |
+| ------ | -------------- | -------------------------------- |
+| `POST` | `/auth/signup` | Register a new user              |
+| `POST` | `/auth/login`  | Login & get JWT token            |
+| `GET`  | `/auth/me`     | Get current logged-in user info  |
+| `POST` | `/agent/chat`  | Chat with general AI agent       |
+| `POST` | `/health/ask`  | Chat with Health Assistant (RAG) |
+| `GET`  | `/user/all`    | Get all users                    |
+| `GET`  | `/user/{id}`   | Get user by ID                   |
+| `PUT`  | `/user/{id}`   | Update user by ID                |
+| `DELETE`| `/user/{id}`   | Delete user by ID                | 
+
+
+
+## Tech Stack
+
+| Component       | Technology Used                    |
+| --------------- | ---------------------------------- |
+| Backend         | FastAPI, LangChain, Python         |
+| Database        | MongoDB                            |
+| Vector Database | Pinecone                           |
+| LLM             | Groq (LLaMA-3-70B-8192)            |
+| Frontend        | HTML, CSS, Vanilla JS              |
+| Auth            | JWT with OAuth2PasswordBearer      |
+| Others          | Tavily Search API, OpenWeather API |
+
 
 
 ## Future Improvements
