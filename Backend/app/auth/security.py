@@ -47,7 +47,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         if exp and datetime.now(timezone.utc).timestamp() > exp:
             raise HTTPException(status_code=401, detail="Token expired")
 
-        print("token expiry time: " + exp)
+        # print(f"token expiry time: {str(exp)}")
         
         user_id: str = payload.get("sub")
         if user_id is None:
