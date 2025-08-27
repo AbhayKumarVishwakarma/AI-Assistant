@@ -20,6 +20,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
         raise HTTPException(status_code=400, detail="Invalid credentials")
 
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    # print("Access token expires minutes: ", access_token_expires)
     token = create_access_token(data={"sub": str(user["_id"])}, expires_delta=access_token_expires)
     return {"access_token": token, "token_type": "bearer", "username": user["username"]}
 
